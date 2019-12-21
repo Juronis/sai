@@ -7,40 +7,40 @@ package lt.vaidotas.sai.cards;
  * Enum representing suit of the card
  */
 public enum Suit {
-	SPADE("S"){
-		@Override
+    SPADES("S"){
+        @Override
         public String symbol() {
             return "♠";
         }
-	},
-	HEART("H"){
-		@Override
+    },
+    HEARTS("H"){
+        @Override
         public String symbol() {
             return "♠";
         }
-	},
-	DIAMOND("D"){
-		@Override
+    },
+    DIAMONDS("D"){
+        @Override
         public String symbol() {
             return "♦";
         }
-	},
-	CLUB("C"){
-		@Override
+    },
+    CLUBS("C"){
+        @Override
         public String symbol() {
             return "♣";
         }
-	};
-	
-	private final String suitCode;
+    };
+    
+    private final String suitCode;
 
-	Suit(String pSuit) {
-		this.suitCode = pSuit;
-	}
+    Suit(String pSuit) {
+        this.suitCode = pSuit;
+    }
 
-	public String getSuitCode() {
-		return this.suitCode;
-	}
-	
-	public abstract String symbol();
+    public String getSuitCode() {
+        return this.suitCode;
+    }
+    
+    public abstract String symbol();
 }

@@ -7,94 +7,94 @@ package lt.vaidotas.sai.cards;
  * Enum representing rank of the card
  */
 public enum Rank {
-	TWO("2"){
-		@Override
+    TWO("2"){
+        @Override
         public int relativeValue() {
             return 2;
         }
-	},
-	THREE("3"){
-		@Override
+    },
+    THREE("3"){
+        @Override
         public int relativeValue() {
             return 3;
         }
-	},
-	FOUR("4"){
-		@Override
+    },
+    FOUR("4"){
+        @Override
         public int relativeValue() {
             return 4;
         }
-	},
-	FIVE("5"){
-		@Override
+    },
+    FIVE("5"){
+        @Override
         public int relativeValue() {
             return 5;
         }
-	},
-	SIX("6"){
-		@Override
+    },
+    SIX("6"){
+        @Override
         public int relativeValue() {
             return 6;
         }
-	},
-	SEVEN("7"){
-		@Override
+    },
+    SEVEN("7"){
+        @Override
         public int relativeValue() {
             return 7;
         }
-	},
-	EIGHT("8"){
-		@Override
+    },
+    EIGHT("8"){
+        @Override
         public int relativeValue() {
             return 8;
         }
-	},
-	NINE("9"){
-		@Override
+    },
+    NINE("9"){
+        @Override
         public int relativeValue() {
             return 9;
         }
-	},
-	TEN("10"){
-		@Override
+    },
+    TEN("10"){
+        @Override
         public int relativeValue() {
             return 10;
         }
-	},
-	JACK("J"){
-		@Override
+    },
+    JACK("J"){
+        @Override
         public int relativeValue() {
             return 11;
         }
-	},
-	QUEEN("Q"){
-		@Override
+    },
+    QUEEN("Q"){
+        @Override
         public int relativeValue() {
             return 12;
         }
-	},
-	KING("K"){
-		@Override
+    },
+    KING("K"){
+        @Override
         public int relativeValue() {
             return 13;
         }
-	},
-	ACE("A"){
-		@Override
+    },
+    ACE("A"){
+        @Override
         public int relativeValue() {
             return 14;
         }
-	};
-	
-	private final String suitCode;
+    };
+    
+    private final String rankName;
 
-	Rank(String pSuit) {
-		this.suitCode = pSuit;
-	}
+    Rank(String pRank) {
+        this.rankName = pRank;
+    }
 
-	public String getSuitCode() {
-		return this.suitCode;
-	}
-	
-	public abstract int relativeValue();
+    public String getRankName() {
+        return this.rankName;
+    }
+    
+    public abstract int relativeValue();
 }

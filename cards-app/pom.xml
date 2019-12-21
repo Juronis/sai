@@ -19,8 +19,13 @@
     <project.build.sourceVersion>1.8</project.build.sourceVersion>
     <project.build.targetVersion>1.8</project.build.targetVersion>
   </properties>
-  
+   
    <dependencies>
+       <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.9</version>
+    </dependency>
     <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
@@ -35,8 +40,8 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <configuration>
-                <source>${project.java.version}</source>
-                <target>${project.java.version}</target>
+                <source>${project.build.sourceVersion}</source>
+                <target>${project.build.targetVersion}</target>
                 <encoding>${project.build.sourceEncoding}</encoding>
             </configuration>
         </plugin>

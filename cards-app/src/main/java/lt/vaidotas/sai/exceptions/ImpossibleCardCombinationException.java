@@ -10,25 +10,25 @@ package lt.vaidotas.sai.exceptions;
 
 public class ImpossibleCardCombinationException extends RuntimeException{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5062025254255751946L;
-	
-	public ImpossibleCardCombinationException(){
-		super();
-	}
-	
-	public ImpossibleCardCombinationException(String message, Throwable cause){
-		super(message, cause);
-	}
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 5062025254255751946L;
+    
+    public ImpossibleCardCombinationException(){
+        super();
+    }
+    
+    public ImpossibleCardCombinationException(String message, Throwable cause){
+        super(message, cause);
+    }
 
-	public ImpossibleCardCombinationException(String message){
-		super(message);
-	}
-	
-	public ImpossibleCardCombinationException(Throwable cause){
-		super(cause);
-	}
+    public ImpossibleCardCombinationException(String message){
+        super(message);
+    }
+    
+    public ImpossibleCardCombinationException(Throwable cause){
+        super(cause);
+    }
 
 }

@@ -6,17 +6,17 @@ import lt.vaidotas.sai.pokerHands.AbstractPokerHandMatcher;
 
 public class PairMatcher extends AbstractPokerHandMatcher{
 
-	public PairMatcher(AbstractPokerHandMatcher pStongerHandMatcher) {
-		super(pStongerHandMatcher);
-	}
+    public PairMatcher(AbstractPokerHandMatcher pStongerHandMatcher) {
+        super(pStongerHandMatcher);
+    }
 
-	@Override
-	public Card[] matchesHand(Card[] cards) {
-		return findPair(cards);
-	}
+    @Override
+    public Card[] matchesHand(Card[] cards) {
+        return findPair(cards);
+    }
 
-	@Override
-	public String handName() {
-		return "Pair";
-	}
+    @Override
+    public String handName() {
+        return "Pair";
+    }
 }
