@@ -57,9 +57,9 @@ public class HandTest
                     new Card(Rank.KING, Suit.CLUBS),
                     new Card(Rank.ACE, Suit.HEARTS),
                     new Card(Rank.JACK, Suit.DIAMONDS),
-                    new Card(Rank.SIX, Suit.DIAMONDS),
-                    new Card(Rank.FOUR, Suit.SPADES)});
-        Assert.assertEquals(handMatchInfo.getHandName(), (new HighCardMatcher(null)).handName());
+                    new Card(Rank.KING, Suit.DIAMONDS),
+                    new Card(Rank.JACK, Suit.SPADES)});
+        Assert.assertEquals(handMatchInfo.getHandName(), (new TwoPairMatcher(null)).handName());
     }
     
     @Test

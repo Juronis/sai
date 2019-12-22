@@ -22,6 +22,9 @@ public class RoyalFlushMatcher extends AbstractPokerHandMatcher{
 
     @Override
     public Card[] matchesHand(Card[] cards) {
+        if(cards.length != 5){
+            return null;
+        }
         if(cards[0].getSuit().equals(cards[1].getSuit()) &&
                 cards[1].getSuit().equals(cards[2].getSuit()) &&    
                  cards[2].getSuit().equals(cards[3].getSuit()) &&
