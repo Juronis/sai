@@ -8,7 +8,7 @@ package lt.vaidotas.sai.exceptions;
  * five aces or two same cards in one hand.
  */
 
-public class ImpossibleCardCombinationException extends RuntimeException{
+public class ImpossibleCardCombinationException extends InvalidInputFormattingException{
 
     /**
      * 

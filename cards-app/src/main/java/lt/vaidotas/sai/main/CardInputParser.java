@@ -1,10 +1,12 @@
 package lt.vaidotas.sai.main;
 
 import java.util.ArrayList;
-
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import lt.vaidotas.sai.cards.*;
+import lt.vaidotas.sai.exceptions.ImpossibleCardCombinationException;
 import lt.vaidotas.sai.exceptions.InvalidInputFormattingException;
 /**
  * 
@@ -16,10 +18,26 @@ public class CardInputParser {
     /**
      * 
      * @param cardSequence String with card codes separated by spaces, 
-     * like 2H 5S JC JD 8H 10H 6D QS
-     * @return list of Cards in same order
+     * like 2H 5S JC JD 8H 
+     * @return list of Cards in same order, with no duplicates, InvalidInputFormattingException
+     * if duplicates are found or input is illegal
      */
-    public static List<Card> parseCards(String cardCodeSequence){
+    public static List<Card> parseAndValidateDuplicateCards(String cardCodeSequence)
+            throws InvalidInputFormattingException{
+        List<Card> cards = parseCards(cardCodeSequence);
+        checkDuplicates(cards);
+        return cards;
+    } 
+    
+    /**
+     * 
+     * @param cardSequence String with card codes separated by spaces, 
+     * like 2H 5S JC JD 8H 10H 6D QS
+     * @return list of Cards in same order, InvalidInputFormattingException
+     * if input is illegal
+     */
+    public static List<Card> parseCards (String cardCodeSequence) throws 
+        InvalidInputFormattingException{
         String[] cardCodes = splitAndVerifyInput(cardCodeSequence);
         List<Card> cards = new ArrayList<Card>();
         for(String cardCode : cardCodes){
@@ -30,13 +48,29 @@ public class CardInputParser {
     
     /**
      * 
+     * @param cards list of cards, with possible duplicates among them
+     * @return true if no duplicates are found, exception otherwise
+     */
+    private static boolean checkDuplicates(List<Card> cards){
+        Set<Card> set = new HashSet<Card>();
+        for (Card each: cards) if (!set.add(each)) {
+            throw new ImpossibleCardCombinationException("Duplicate card: " + each.writtenName());
+        }
+        return true;
+    }
+    
+    /**
+     * 
      * @param stringToSplit list of symbol groups, separated by spaces,
      * representing a set of cards
+     * 
      * @return List of Strings, each representing potentially a card code
      * InvalidInputFormattingException if input is definitely not a valid rank
-     * but not always - extra check is needed
+     * but not always - extra check is needed, as exception is thrown only when
+     * number of symbols is not 2 or 3.
      */
-    private static String[] splitAndVerifyInput(String stringToSplit){
+    private static String[] splitAndVerifyInput(String stringToSplit) throws 
+        InvalidInputFormattingException{
         String[] words = stringToSplit.split("\\s+");
         for (int i = 0; i < words.length; i++) {
             String specialSymbolsRemoved = words[i].replaceAll("[^\\w]", "");
@@ -83,7 +117,7 @@ public class CardInputParser {
      */
     public static Rank covertStringToRank(String rankCode){
         Rank rank = null;
-        switch(rankCode) 
+        switch(rankCode.toUpperCase()) 
         { 
             case "2": 
                 rank = Rank.TWO;
@@ -141,7 +175,7 @@ public class CardInputParser {
      */
     public static Suit covertStringToSuit(String suitCode){
         Suit suit = null;
-        switch(suitCode) 
+        switch(suitCode.toUpperCase()) 
         { 
             case "D": 
                 suit = Suit.DIAMONDS;
@@ -163,6 +197,4 @@ public class CardInputParser {
         }    
         return suit;
     }
-
-
 }
